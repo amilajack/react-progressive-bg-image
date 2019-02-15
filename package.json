@@ -1,5 +1,5 @@
 {
-  "name": "react-progressive-bg-image",
+  "name": "@amilajack/react-progressive-bg-image",
   "version": "3.0.0",
   "description": "Medium style progressive background image for React",
   "author": "Michael Hsu <evenchange4@gmail.com>",
@@ -108,6 +108,7 @@
     ],
     "plugins": ["prettier", "jest", "flowtype"],
     "env": {
+      "browser": true,
       "jest/globals": true
     },
     "rules": {

@@ -1,4 +1,3 @@
-/* global Image */
 /* eslint consistent-return: 0 */
 // @flow
 
@@ -10,7 +9,12 @@ export type LoadImage = (
 
 const loadImage: LoadImage = src =>
   new Promise((resolve, reject) => {
-    const image = new Image();
+    // On server side, skip this step because Image is not defined on server
+    if (typeof window === 'undefined') {
+      return resolve({ src, isCached: false });
+    }
+
+    const image = new window.Image();
     image.src = src;
     // Remind: Check if cached
     if (isCached(image)) return resolve({ src, isCached: true });
